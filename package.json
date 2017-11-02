@@ -1,0 +1,32 @@
+{
+  "name": "mean-stack2.0",
+  "version": "1.0.0",
+  "description": "MEAN STACK ANGULAR 2.0 ",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/muniyappankalinathan/MEAN-stack-2.0.git"
+  },
+  "keywords": [
+    "MEAN",
+    "Stack",
+    "2.0",
+    "App"
+  ],
+  "author": "MuniyappanK",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/muniyappankalinathan/MEAN-stack-2.0/issues"
+  },
+  "homepage": "https://github.com/muniyappankalinathan/MEAN-stack-2.0#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "mongoose": "^4.12.5"
+  },
+  "devDependencies": {
+    "@angular/cli": "^1.5.0"
+  }
+}
