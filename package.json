@@ -23,6 +23,8 @@
   },
   "homepage": "https://github.com/muniyappankalinathan/MEAN-stack-2.0#readme",
   "dependencies": {
+    "@angular/animations": "^5.0.0",
+    "@angular/material": "^2.0.0-beta.12",
     "express": "^4.16.2",
     "mongoose": "^4.12.5"
   },
