@@ -1,0 +1,41 @@
+<!-- Always shows a header, even in smaller screens. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span class="mdl-layout-title">Title</span>
+      <!-- Add spacer, to align navigation to the right -->
+      <div class="mdl-layout-spacer"></div>
+      <!-- Navigation. We hide it in small screens. -->
+      <nav class="mdl-navigation mdl-layout--large-screen-only">
+        <div routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a class="mdl-navigation__link" routerLink="/home"><img src="https://png.icons8.com/dog-house/androidL/25/ffffff">Home</a></div>
+        <div routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a class="mdl-navigation__link" routerLink="/dashboard"> <mat-icon>dashboard</mat-icon> Dashboard</a></div>
+        <div routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a class="mdl-navigation__link" routerLink="/login"><img src="https://png.icons8.com/login/androidL/25/ffffff">Login</a></div>
+        <div routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a class="mdl-navigation__link" routerLink="/logout"><img src="https://png.icons8.com/sign-out/androidL/25/ffffff">Logout</a></div>
+      </nav>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Title</span>
+    <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+    </nav>
+  </div>
+  <main class="mdl-layout__content">
+    <div class="page-content">
+      <!-- Your content goes here -->
+      <div class="mdl-grid">
+          <!-- <div class="mdl-layout-spacer"></div> -->
+        <div class="mdl-cell mdl-cell--12-col">
+            <router-outlet></router-outlet>                  
+      </div>
+      <!-- <div class="mdl-layout-spacer"></div> -->
+        </div>
+      </div>
+  </main>
+</div>
+
+ 
