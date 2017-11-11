@@ -6,7 +6,66 @@ module.exports = (router) =>{
         if(!req.body.email){
             res.json({ success: false, message: 'You must provide an e-mail'});
         }else{
-            res.send('Hello world');
+            if(!req.body.username){
+                res.json({ success: false, message: 'You must provide an username'});
+            }else{
+                if(!req.body.password){
+                    res.json({ success: false, message: 'You must provide an password'});
+                }else{
+                    let user = new User({
+                        email:req.body.email,
+                        username:req.body.username,
+                        password:req.body.password
+                    });
+                    user.save((err) =>{
+                        if(err){
+                           // console.log(err);
+                            if(err.code === 11000){
+                                res.json({
+                                    success: false,message: 'username or e-mail is already exist'
+                                });
+                            }else{
+                                if(err.errors){
+                                    if(err.errors.email){
+                                        res.json({
+                                            success: false,message: err.errors.email.message
+                                        });
+                                    }else{
+                                        if(err.errors.username){
+                                            res.json({
+                                                success: false,message: err.errors.username.message
+                                            });
+                                        }else{
+                                            if(err.errors.password){
+                                                res.json({
+                                                    success: false,message: err.errors.password.message
+                                                });
+                                            }else{
+                                                res.json({
+                                                    success: false,message: err
+                                                });
+                                            }
+                                        }
+
+
+                                        res.json({
+                                            success: false,message: 'user could not be saved:',err
+                                        });
+                                    }
+                                }                               
+                            }
+                        }else{
+                            res.json({
+                                success: true,message: 'user saved!!!!'
+                            });
+                          //  res.send('hiiii');
+                          //  console.log(req.body);
+                            
+                        }
+                    });
+                   
+                }
+            }
         }
     });
     return router;
