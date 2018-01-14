@@ -1,0 +1,65 @@
+<div class="mdl-grid">
+  <div class="mdl-layout-spacer"></div>
+<div class="mdl-cell mdl-cell--8-col">
+<div class="mdl-card-square mdl-card mdl-shadow--2dp">
+  <div class="mdl-card__title mdl-color--primary mdl-color-text--white">
+    <h2 class="mdl-card__title-text">Signup</h2>
+  </div>
+<div class="mdl-card__supporting-text">
+    <form [formGroup]="form" class="example-form" (submit) = "onRegisteration()">
+        <div class="example-container">
+            <mat-form-field [ngClass]="{'has-error': (form.controls.username.errors && form.controls.username.dirty), 'has-success': !form.controls.username.errors}">
+                <input matInput placeholder="User Name" name="username" formControlName ="username">
+
+                <!-- Validation -->
+                <mat-error *ngIf="form.controls.username.errors?.required && form.controls.username.dirty">This field is required</mat-error>
+                <mat-error *ngIf="form.controls.username.errors?.minlength && form.controls.username.dirty || form.controls.username.errors?.maxlength && form.controls.username.dirty ">Minimum characters: 3, Maximum characters: 15</mat-error>
+                <mat-error *ngIf="form.controls.username.errors?.validateUsername && form.controls.username.dirty">Username must not have any special characters</mat-error>
+                <mat-error *ngIf="usernameMessage">{{ usernameMessage }}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field [ngClass]="{'has-error': (form.controls.email.errors && form.controls.email.dirty), 'has-success': !form.controls.email.errors}">
+                <input matInput placeholder="Email" name="email" formControlName ="email">
+
+                <!-- Validation -->
+                <mat-error *ngIf="form.controls.email.errors?.required && form.controls.email.dirty">This field is required</mat-error>
+                <mat-error *ngIf="(form.controls.email.errors?.minlength && form.controls.email.dirty || form.controls.email.errors?.maxlength && form.controls.email.dirty ) && form.controls.email.dirty">Minimum characters: 5, Maximum characters: 30</mat-error>
+                <mat-error *ngIf="form.controls.email.errors?.validateEmail && form.controls.email.dirty">This must be a valid e-mail</mat-error>
+                <mat-error *ngIf="emailMessage">{{ emailMessage}}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field [ngClass]="{'has-error': (form.controls.password.errors && form.controls.password.dirty), 'has-success': !form.controls.password.errors}">
+                <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" name="password" formControlName ="password">
+                <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+
+                <!-- Validation -->
+                <mat-error *ngIf="form.controls.password.errors?.required && form.controls.password.dirty">This field is required</mat-error>
+                <mat-error *ngIf="form.controls.password.errors?.minlength && form.controls.password.dirty || form.controls.password.errors?.maxlength && form.controls.password.dirty ">Minimum characters: 7, Maximum characters: 35</mat-error>
+                <mat-error *ngIf="form.controls.password.errors?.validatePassword && form.controls.password.dirty">Password must be at least 7 characters but no more than 35</mat-error>
+              </mat-form-field>
+
+              <mat-form-field [ngClass]="{'has-error': (form.controls.confirmpassword.errors && form.controls.confirmpassword.dirty), 'has-success': !form.controls.confirmpassword.errors}">
+                  <input matInput placeholder="Confirm your password" [type]="hide ? 'password' : 'text'" name="confirmpassword" formControlName ="confirmpassword">
+                  <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+
+                  <!-- Validation -->
+                  <mat-error *ngIf="form.controls.confirmpassword.errors?.required && form.controls.confirmpassword.dirty">This field is required</mat-error>
+                  <mat-error *ngIf="form.errors?.matchingPasswords && form.controls.confirmpassword.dirty">Password do not match</mat-error>
+                </mat-form-field>
+
+        </div>
+        <div class="mdl-grid">
+            <div class="mdl-layout-spacer"></div>
+          <div class="mdl-cell mdl-cell--6-col">
+    <button [disabled] = "!form.valid" type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+    Signup
+    </button>
+          </div>
+          <div class="mdl-layout-spacer"></div>
+        </div>
+  </form>
+  </div>
+</div>
+</div>
+<!-- <div class="mdl-layout-spacer"></div> -->
+</div>
