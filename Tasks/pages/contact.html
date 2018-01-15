@@ -1,0 +1,21 @@
+<div class="jumbotron text-center">
+	<h1>Contact Page</h1>	
+	<p>{{ message }}</p>
+
+
+<form class="form-horizontal">
+
+	<div class="form-group">
+		<label class="text-primary" for="palindrome-val">Name</label>
+		<input type="text" class="form-control" id="palindrome-val" placeholder="Enter your value" ng-model="palcheck">
+	</div>
+
+	<button type="button" class="btn btn-primary" ng-click="onChangeTw0(palcheck)">Submit</button>
+</form>
+<p ng-if="hideAtFirst">Input: {{palcheck}}</p>
+<p ng-if="hideAtFirst">Output: {{palValue}}{{checkPalindrome}}</p>
+<p ng-if="hideAtFirst">Status: {{palStatus}}</p>
+</div>
+
+
+	
