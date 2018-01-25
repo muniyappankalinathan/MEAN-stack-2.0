@@ -1,0 +1,69 @@
+<form novalidate (ngSubmit)="onSubmit(user)" [formGroup]="user">
+ <!--  <label>
+    <span>Full name</span>
+    <input type="text" placeholder="Your full employee_name" formControlName="employee_name">
+  </label>
+  <div class="error" *ngIf="user.get('employee_name').touched && user.get('employee_name').hasError('required')">
+    Name is required
+  </div>
+  <div class="error" *ngIf="user.get('employee_name').touched && user.get('employee_name').hasError('minlength')">
+    Minimum of 2 characters
+  </div>
+    <label>
+      <span>Your content</span>
+      <input type="text" placeholder="Your content" formControlName="body">
+    </label>
+    <div
+      class="error"
+      *ngIf="user.get('body').hasError('required') && user.get('body').touched">
+      Body is required
+    </div>
+    <label>
+      <span>give your Id</span>
+      <input type="text" placeholder="Give your ID" formControlName="userId">
+    </label>
+    <div
+      class="error"
+      *ngIf="user.get('userId').hasError('required') && user.get('userId').touched">
+       ID is required
+    </div>
+
+  <button type="submit" [disabled]="user.invalid">Add me</button> -->
+
+   <mat-form-field class="example-full-width">
+    <input type="text" matInput placeholder="Your full name" formControlName="name">
+    <mat-icon matSuffix>mode_edit</mat-icon>
+    <mat-error *ngIf="user.get('name').touched && user.get('name').hasError('required')">
+        Your full name is <strong>required</strong>
+    </mat-error>
+    <mat-error *ngIf="user.get('name').touched && user.get('name').hasError('minlength')">
+      Minimum of 2 characters
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input type="text" matInput placeholder="Your Information" formControlName="body">
+    <mat-icon matSuffix>mode_edit</mat-icon>
+    <mat-error *ngIf="user.get('body').hasError('required') && user.get('body').touched">
+       Information is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input type="text" matInput placeholder="User ID" formControlName="userId">
+    <mat-icon matSuffix>mode_edit</mat-icon>
+    <mat-error *ngIf="user.get('userId').hasError('required') && user.get('userId').touched">
+      userId is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+
+  <button mat-raised-button color="accent" type="submit" [disabled]="user.invalid">Add me</button>
+</form>
+

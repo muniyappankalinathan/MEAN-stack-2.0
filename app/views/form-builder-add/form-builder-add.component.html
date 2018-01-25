@@ -1,0 +1,31 @@
+<div class="mdl-grid">
+  <div class="mdl-layout-spacer"></div><div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet">
+      <form novalidate (ngSubmit)="submitMe()" [formGroup]="myForm">
+      <div formArrayName="hobbiesList">
+    <div class="demo-list-action mdl-list">
+      <div class="mdl-list__item" *ngFor="let hobby of hobbiesList.controls; let i=index" [formGroupName]="i">
+        <span class="mdl-list__item-primary-content">
+          <i class="material-icons mdl-list__item-avatar">person</i>
+          <span> {{hobby.controls.name.value}}</span>
+        </span>
+        <a class="mdl-list__item-secondary-action" href="#"><mat-checkbox formControlName="selected"></mat-checkbox></a>
+      </div>
+    </div>
+    <div class="mdl-grid">
+    <div class="mdl-layout-spacer"></div>
+     <div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet">
+    <button mat-raised-button color="accent" type="submit">Submit</button>
+    </div>
+    <div class="mdl-layout-spacer"></div>
+    </div>
+  </div>
+  </form>  
+
+  </div>
+  <div class="mdl-layout-spacer"></div>
+</div>
+
+
+
+<!--     <div>{{mySelectedHobbies | json}}</div>
+ -->    

@@ -1,0 +1,76 @@
+<mat-card class="custom-card">
+<div class="row">
+  <div class="col-md-offset-2 col-md-6">
+          <mat-expansion-panel>
+             <mat-expansion-panel-header (click)="loginText=!loginText">
+               <mat-panel-title>
+                  <mat-chip-list *ngIf="loginText">
+                      <mat-chip color="primary" selected="true">  Please login</mat-chip>
+                    </mat-chip-list>
+               </mat-panel-title>
+               <mat-panel-description>
+                  <mat-chip-list *ngIf="!loginText">
+                      <mat-chip color="accent" selected="true"> All fields are mandatory</mat-chip>
+                    </mat-chip-list>
+               </mat-panel-description>
+             </mat-expansion-panel-header>
+             
+             <form class="example-form">
+                 <mat-grid-list cols="1" rowHeight="100px">
+                     <mat-grid-tile>
+                         <mat-form-field class="example-full-width">
+                             <input type="text" matInput placeholder="Full name" required>
+                           </mat-form-field>
+                     </mat-grid-tile>
+                     <mat-grid-tile>
+                         <mat-form-field class="example-full-width">
+                             <mat-select placeholder="Gender" required>
+                                 <mat-option value="male">Male</mat-option>
+                                 <mat-option value="female">Female</mat-option>
+                             </mat-select>
+                           </mat-form-field>
+                     </mat-grid-tile>
+
+                     <mat-grid-tile>
+                            <mat-form-field class="example-full-width">
+                                    <input matInput [matDatepicker]="picker" placeholder="Data of birth" required>
+                                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                    <mat-datepicker touchUi="true" #picker></mat-datepicker>
+                                  </mat-form-field>
+                        </mat-grid-tile>
+
+                     <mat-grid-tile>
+                            <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Email" [formControl]="emailFormControl" required>
+                                    <mat-error *ngIf="emailFormControl.hasError('pattern')">
+                                      Please enter a valid email address
+                                    </mat-error>
+                                    <mat-error *ngIf="emailFormControl.hasError('required')">
+                                      Email is <strong>required</strong>
+                                    </mat-error>
+                                  </mat-form-field>
+                     </mat-grid-tile>
+
+                     <mat-grid-tile>
+                         <mat-form-field class="example-full-width">
+                             <input type="password" matInput placeholder="Password" required>
+                           </mat-form-field>
+                     </mat-grid-tile>
+                     <mat-grid-tile>
+                         <mat-form-field class="example-full-width">
+                             <input type="password" matInput placeholder="Confirm password" required>
+                           </mat-form-field>
+                     </mat-grid-tile>
+                   </mat-grid-list>
+                   <mat-grid-list cols="1" rowHeight="100px">
+                   <mat-grid-tile>
+                      <button mat-raised-button color="accent">Login</button>
+                  </mat-grid-tile>
+                 </mat-grid-list>
+                   
+             </form>   
+           </mat-expansion-panel>
+  </div>
+</div>
+</mat-card>
+

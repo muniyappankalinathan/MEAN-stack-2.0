@@ -1,0 +1,105 @@
+<!-- dynamic table -->
+
+<!-- <div>
+  <button type="button" (click)="getUsers()">Click to show</button>
+</div>
+<div class="example-container mat-elevation-z8">
+  <mat-table #table [dataSource]="dataSource">
+   
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+    </ng-container>
+   
+    <ng-container matColumnDef="first_name">
+      <mat-header-cell *matHeaderCellDef> first_name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.first_name}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="last_name">
+      <mat-header-cell *matHeaderCellDef> last_name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.last_name}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>
+ -->
+
+ <div class="mdl-grid">
+    <div class="mdl-layout-spacer"></div><div class="mdl-cell mdl-cell--2-col mdl-cell--8-col-tablet">
+ <button mat-fab color="primary" type="button" (click)="shareOnFacebook()"><span><i class="fa fa-2x fa-facebook" aria-hidden="true"></i></span></button>
+ <button mat-fab color="accent" type="button" (click)="shareOnLinkedIn()"><span><i class="fa fa-2x fa-linkedin" aria-hidden="true"></i></span></button>
+ <button mat-fab color="warn" type="button" (click)="shareOnGoogle()"><span><i class="fa fa-2x fa-google-plus" aria-hidden="true"></i></span></button>
+ <!-- <button ceiboShare  [googlePlus]="{url:repoUrl}">Google Plus</button> -->
+ </div>
+ </div>
+ 
+
+ <mat-chip-list>
+    <mat-chip color="accent" selected="true" (click)="hide()"><span [hidden]="!show">Click to show</span><span [hidden]="show">Click to Hide</span></mat-chip>
+  </mat-chip-list>
+
+ <div class="row" [hidden]="show">
+   <div class="col-md-offset-2 col-md-8">
+      <mat-card>
+          <table class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                  <th class="text-center text-capitalize">Enable/Disable</th>
+                <th class="text-center text-capitalize">id</th>
+                <th class="text-center text-capitalize">title</th>
+                <th class="text-center text-capitalize">body</th>
+                <th class="text-center text-capitalize">options</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let user of allUsers; let i = index" [attr.data-index]="i">
+                <td class="text-center"><mat-checkbox [(ngModel)]="selection.ids[user.id]" id="{{user.id}}"></mat-checkbox>
+                </td>
+                <td class="text-center">{{user.id}}</td>
+                <td class="text-center">{{user.title}}</td>
+                <td class="text-center">{{user.body}}</td>
+                <td class="text-center">
+                  <ul class="list-inline" [hidden]="selection.ids[user.id]">
+                    <li><mat-icon (click)="openDialog(user)">edit</mat-icon></li>
+                    <li><mat-icon (click)="deleteItem(user.id)">delete_forever</mat-icon></li>
+                  </ul><span [hidden]="!selection.ids[user.id]">uncheck to enable</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          </mat-card>
+   </div>
+   <!-- <button mat-raised-button >Open dialog</button> -->
+ </div>
+
+ 
+<!-- <div class="example-container mat-elevation-z8">
+  <mat-table #table [dataSource]="dataSource">
+
+    <ng-container matColumnDef="position">
+      <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="weight">
+      <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="symbol">
+      <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div> -->

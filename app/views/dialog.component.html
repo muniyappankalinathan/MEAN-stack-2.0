@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-md-offset-1 col-md-10">
+    <form novalidate (ngSubmit)="update(user)" [formGroup]="user">
+      <mat-form-field class="example-full-width">
+        <input type="text" matInput placeholder="Your full name" formControlName="name" [(ngModel)]="userDatas.title">
+        <mat-icon matSuffix>mode_edit</mat-icon>
+        <mat-error *ngIf="user.get('name').touched && user.get('name').hasError('required')">
+          Your full name is <strong>required</strong>
+        </mat-error>
+        <mat-error *ngIf="user.get('name').touched && user.get('name').hasError('minlength')">
+          Minimum of 2 characters
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input type="text" matInput placeholder="Your Information" formControlName="body" [(ngModel)]="userDatas.body">
+        <mat-icon matSuffix>mode_edit</mat-icon>
+        <mat-error *ngIf="user.get('body').hasError('required') && user.get('body').touched">
+          Information is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+     <!--  <mat-form-field class="example-full-width">
+        <input type="text" matInput placeholder="User ID" formControlName="userId" [(ngModel)]="id">
+        <mat-icon matSuffix>mode_edit</mat-icon>
+        <mat-error *ngIf="user.get('userId').hasError('required') && user.get('userId').touched">
+          userId is <strong>required</strong>
+        </mat-error>
+      </mat-form-field> -->
+      <div class="row">
+        <div class="col-md-offset-1 col-md-5">
+          <button mat-raised-button color="accent" type="submit" [disabled]="user.invalid">Update me</button>
+        </div>
+        <div class="col-md-offset-1 col-md-5">
+          <button mat-raised-button color="primary" type="button" (click)="dialogRef.close()">Don't update</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,70 @@
+<div>
+<!-- Always shows a header, even in smaller screens. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span class="mdl-layout-title">
+          <mat-toolbar color="accent">My App</mat-toolbar>
+      </span>
+      <!-- Add spacer, to align navigation to the right -->
+      <div class="mdl-layout-spacer"></div>
+      <!-- Navigation. We hide it in small screens. -->
+      <nav class="mdl-navigation mdl-layout--large-screen-only">
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+      </nav>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title"> 
+      <mat-chip-list>
+      <mat-chip color="accent" selected="true">Demo App</mat-chip>
+      </mat-chip-list>
+    </span>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+    </nav>
+  </div>
+  <main class="mdl-layout__content">
+    <div class="page-content">
+      <!-- <app-list-table></app-list-table> -->
+      <!-- Your content goes here -->
+      <mat-tab-group>
+          <mat-tab label="Tab 1">
+              <mat-card>
+                  <app-login></app-login>
+                  <br>
+              <mat-expansion-panel>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      Add User
+                    </mat-panel-title>
+                    <mat-panel-description>
+                      Type name and job
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+                  <app-reactive-form></app-reactive-form>
+                </mat-expansion-panel>   
+                <app-form-builder-add></app-form-builder-add>
+              </mat-card> 
+          </mat-tab>
+          <mat-tab label="Tab 2">
+              <app-table-basic-example></app-table-basic-example>
+              <app-form-builder-edit></app-form-builder-edit>
+          </mat-tab>
+        </mat-tab-group>
+    </div>
+  </main>
+</div>
+
+
+ 
+</div>
+
+
